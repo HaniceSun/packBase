@@ -1,5 +1,5 @@
 <p align="left">
-<img src="assets/logo.png" alt="packBase logo" width="200"/>
+<img src="assets/logo.png" alt="logo" width="200"/>
 </p>
 
 ## Overview
