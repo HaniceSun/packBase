@@ -52,10 +52,10 @@ class PackSetup:
         print(f'{out_file} need to be updated')
 
     def make_license(self, out_file='LICENSE'):
-        print('update {out_file} if needed')
+        print(f'update {out_file} if needed')
 
     def make_gitignore(self, out_file='.gitignore'):
-        print('update .gitignore if needed')
+        print(f'update {out_file} if needed')
 
     def update_git_remote(self, remote_name='origin', account='git@github.com:HaniceSun'):
         if self.package_name != 'packBase':
