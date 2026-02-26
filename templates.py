@@ -30,7 +30,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 
 authors = [
-  {{name = "Han Sun", email = "hanicesun@gmail.edu"}}
+  {{name = "Hanice Sun", email = "hanicesun@gmail.edu"}}
 ]
 
 [project.urls]
@@ -129,7 +129,7 @@ python setup.py
 
 ## Author and License
 
-**Author:** Han Sun
+**Author:** Hanice Sun
 
 **Email:** hanicesun@gmail.com
 
