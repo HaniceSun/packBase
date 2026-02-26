@@ -14,6 +14,8 @@ mv packBase new_package_name
 cd new_package_name
 python setup.py
 create a new repo named new_package_name on GitHub and push the code
+rm setup.py templates.py
+
 ```
 
 ## Author and License
