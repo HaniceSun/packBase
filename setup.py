@@ -3,7 +3,7 @@ import os
 import subprocess
 from templates import *
 
-class PackConfig:
+class PackSetup:
     def __init__(self, package_name):
         self.package_name = package_name
         print(f'package name: {package_name}')
@@ -80,5 +80,5 @@ class PackConfig:
 
 if __name__ == '__main__':
     package_name = os.path.basename(os.getcwd())
-    pc = PackConfig(package_name)
-    pc()
+    ps = PackSetup(package_name)
+    ps()
