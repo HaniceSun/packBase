@@ -7,7 +7,7 @@ from .utils import *
 
 class PackSetup:
     def __init__(self, package_name='packBase', author='Hanice Sun', email='hanicesun@gmail.com',
-                 gtihub_https='https://github.com/HaniceSun', github_ssh='git@github.com:HaniceSun'):
+                 github_https='https://github.com/HaniceSun', github_ssh='git@github.com:HaniceSun'):
         self.package_name = package_name
         self.author = author
         self.email = email
