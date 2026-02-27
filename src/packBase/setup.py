@@ -60,7 +60,8 @@ class PackSetup:
 
     def make_logo(self, out_file='logo.png', logo_dir='assets'):
         os.makedirs(logo_dir, exist_ok=True)
-        os.touch(f'{logo_dir}/{out_file}')
+        with open(f'{logo_dir}/{out_file}', 'wb') as f:
+            pass
         print(f'{out_file} need to be updated')
 
     def make_readme(self, out_file='README.md'):
