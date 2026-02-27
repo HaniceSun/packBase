@@ -4,7 +4,7 @@
 
 ## Overview
 
-packBase is a simple template repository for creating new Python packages.
+packBase is a simple package to create a template repo for new Python packages.
 
 ## Installation
 
