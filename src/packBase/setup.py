@@ -44,6 +44,11 @@ class PackSetup:
         for _dir in sub_dir:
             print(f'{out_dir}/{self.package_name}/{_dir} is created')
 
+    def make_utils(self, out_file='utils.py', out_dir='src'):
+        with open(f'{out_dir}/{self.package_name}/{out_file}', 'w') as f:
+            f.write(utils_template.format(package_name=self.package_name).strip())
+        print(f'{out_dir}/{self.package_name}/{out_file} is created')
+
     def make_cli(self, out_file='cli.py', out_dir='src'):
         with open(f'{out_dir}/{self.package_name}/{out_file}', 'w') as f:
             f.write(cli_template.format(package_name=self.package_name).strip())
@@ -55,6 +60,8 @@ class PackSetup:
         print(f'{out_dir}/{self.package_name}/{out_file} is created')
 
     def make_logo(self, out_file='logo.png', logo_dir='assets'):
+        os.makedirs(logo_dir, exist_ok=True)
+        os.touch(f'{logo_dir}/{out_file}')
         print(f'{out_file} need to be updated')
 
     def make_readme(self, out_file='README.md'):
@@ -90,6 +97,7 @@ class PackSetup:
         self.make_pyproject()
         self.make_requirements()
         self.make_src()
+        self.make_utils()
         self.make_cli()
         self.make_main()
         self.make_license()

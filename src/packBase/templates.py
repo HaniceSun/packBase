@@ -61,6 +61,11 @@ if __name__ == "__main__":
     main()
 '''
 
+utils_template='''
+from importlib import resources
+BASE = resources.files(__package__.split(".")[0])
+'''
+
 cli_template='''
 import argparse
 
