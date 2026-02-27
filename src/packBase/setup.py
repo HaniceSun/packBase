@@ -82,7 +82,7 @@ class PackSetup:
     def make_git(self, git_dir='.git', commit_message='initial commit', github_remote_name='origin'):
         if not os.path.exists(git_dir):
             cmd = 'git config --global init.defaultBranch main; git init'
-            subprocess.run(cmd, shell=True, check=True)
+            subprocess.run(cmd, shell=True)
         cmd = f'git add .; git commit -m "{commit_message}"'
         subprocess.run(cmd, shell=True)
         print('git repo is created')
