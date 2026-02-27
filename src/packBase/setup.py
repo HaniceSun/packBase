@@ -1,11 +1,18 @@
 #!/usr/bin/env python3
 import os
+import shutil
 import subprocess
-from templates import *
+from .templates import *
+from .utils import *
 
 class PackSetup:
-    def __init__(self, package_name):
+    def __init__(self, package_name='packBase', author='Hanice Sun', email='hanicesun@gmail.com',
+                 gtihub_https='https://github.com/HaniceSun', github_ssh='git@github.com:HaniceSun'),
         self.package_name = package_name
+        self.author = author
+        self.email = email
+        self.github_https = gtihub_https
+        self.github_ssh = github_ssh
         print(f'package name: {package_name}')
     
     def make_environment(self, out_file='environment.yml'):
@@ -15,7 +22,9 @@ class PackSetup:
 
     def make_pyproject(self, out_file='pyproject.toml'):
         with open(out_file, 'w') as f:
-            f.write(pyproject_template.format(package_name=self.package_name).strip())
+            f.write(pyproject_template.format(package_name=self.package_name,
+                                              author=self.author, email=self.email,
+                                              github_https=self.github_https).strip())
         print(f'{out_file} is created')
 
     def make_requirements(self, out_file='requirements.txt'):
@@ -45,24 +54,37 @@ class PackSetup:
             f.write(main_template.format(package_name=self.package_name).strip())
         print(f'{out_dir}/{self.package_name}/{out_file} is created')
 
-    def make_logo(self, out_file='logo.png'):
+    def make_logo(self, out_file='logo.png', logo_dir='assets'):
+        if not os.path.exists(logo_dir):
+            logo_dir_template = f'{BASE.parent.parent}/{logo_dir}'
+            shutil.copytree(logo_dir_template, logo_dir)
         print(f'{out_file} need to be updated')
 
     def make_readme(self, out_file='README.md'):
+        readme_file = f'{BASE.parent.parent}/{out_file}'
+        shutil.copy(readme_file, out_file)
         print(f'{out_file} need to be updated')
 
     def make_license(self, out_file='LICENSE'):
-        print(f'update {out_file} if needed')
+        license_file = f'{BASE.parent.parent}/{out_file}'
+        shutil.copy(license_file, out_file)
 
     def make_gitignore(self, out_file='.gitignore'):
-        print(f'update {out_file} if needed')
+        gitignore_file = f'{BASE.parent.parent}/{out_file}'
+        shutil.copy(gitignore_file, out_file)
 
-    def update_git_remote(self, remote_name='origin', account='git@github.com:HaniceSun'):
-        if self.package_name != 'packBase':
-            remote_url = f'{account}/{self.package_name}.git'
-            cmd = f'git remote set-url {remote_name} {remote_url}'
+    def make_git(self, git_dir='.git', commit_message='initial commit', github_remote_name='origin'):
+        if not os.path.exists(git_dir):
+            cmd = 'git config --global init.defaultBranch main; git init'
             subprocess.run(cmd, shell=True, check=True)
-            print(f'git remote {remote_name} is updated to {remote_url}')
+        cmd = f'git add .; git commit -m "{commit_message}"'
+        subprocess.run(cmd, shell=True)
+        print('git repo is created')
+
+        github_remote_url = f'{self.github_ssh}/{self.package_name}.git'
+        cmd = f'git remote add {github_remote_name} {github_remote_url}'
+        subprocess.run(cmd, shell=True)
+        print(f'git remote {github_remote_name} is set to {github_remote_url}')
 
     def __call__(self):
         self.make_environment()
@@ -76,7 +98,7 @@ class PackSetup:
         self.make_logo()
         self.make_readme()
         self.make_gitignore()
-        self.update_git_remote()
+        self.make_git()
 
 if __name__ == '__main__':
     package_name = os.path.basename(os.getcwd())

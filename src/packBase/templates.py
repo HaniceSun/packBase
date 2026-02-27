@@ -30,11 +30,11 @@ readme = "README.md"
 requires-python = ">=3.12"
 
 authors = [
-  {{name = "Hanice Sun", email = "hanicesun@gmail.edu"}}
+  {{name = "{author}", email = "{email}"}}
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/HaniceSun/{package_name}"
+"Homepage" = "{github_https}/{package_name}"
 
 [project.scripts]
 {package_name} = "{package_name}.cli:main"
