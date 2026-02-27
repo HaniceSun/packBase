@@ -87,7 +87,6 @@ class PackSetup:
 
             cmd = f'git add .; git commit -m "{commit_message}"'
             subprocess.run(cmd, shell=True)
-            print('git initial commit is done')
 
             github_remote_url = f'{self.github_ssh}/{self.package_name}.git'
             cmd = f'git remote add {github_remote_name} {github_remote_url}'
