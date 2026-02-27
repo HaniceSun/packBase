@@ -29,4 +29,4 @@ find = { where = ["src"] }
 "" = "src"
 
 [tool.setuptools.package-data]
-packBase = ["data/*.txt*", "config/*.yaml"]
+packBase = ["data/*.txt*", "data/.gitignore", "config/*.yaml"]
