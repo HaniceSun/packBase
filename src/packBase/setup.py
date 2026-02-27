@@ -6,13 +6,12 @@ from .templates import *
 from .utils import *
 
 class PackSetup:
-    def __init__(self, package_name='packBase', author='Hanice Sun', email='hanicesun@gmail.com',
-                 github_https='https://github.com/HaniceSun', github_ssh='git@github.com:HaniceSun'):
+    def __init__(self, package_name='packBase', author='Hanice Sun', email='hanicesun@gmail.com', github_account='HaniceSun'):,
         self.package_name = package_name
         self.author = author
         self.email = email
-        self.github_https = github_https
-        self.github_ssh = github_ssh
+        self.github_https = f'https://github.com/{github_account}'
+        self.github_ssh = f'git@github.com:{github_account}'
         print(f'package name: {package_name}')
     
     def make_environment(self, out_file='environment.yml'):
