@@ -6,7 +6,7 @@ from .templates import *
 from .utils import *
 
 class PackSetup:
-    def __init__(self, package_name='packBase', author='Hanice Sun', email='hanicesun@gmail.com', github_account='HaniceSun'):,
+    def __init__(self, package_name='packBase', author='Hanice Sun', email='hanicesun@gmail.com', github_account='HaniceSun'):
         self.package_name = package_name
         self.author = author
         self.email = email
