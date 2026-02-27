@@ -83,14 +83,18 @@ class PackSetup:
         if not os.path.exists(git_dir):
             cmd = 'git config --global init.defaultBranch main; git init'
             subprocess.run(cmd, shell=True)
-        cmd = f'git add .; git commit -m "{commit_message}"'
-        subprocess.run(cmd, shell=True)
-        print('git repo is created')
+            print('git repo is created')
 
-        github_remote_url = f'{self.github_ssh}/{self.package_name}.git'
-        cmd = f'git remote add {github_remote_name} {github_remote_url}'
-        subprocess.run(cmd, shell=True)
-        print(f'git remote {github_remote_name} is set to {github_remote_url}')
+            cmd = f'git add .; git commit -m "{commit_message}"'
+            subprocess.run(cmd, shell=True)
+            print('git initial commit is done')
+
+            github_remote_url = f'{self.github_ssh}/{self.package_name}.git'
+            cmd = f'git remote add {github_remote_name} {github_remote_url}'
+            subprocess.run(cmd, shell=True, check=True)
+            print(f'git remote {github_remote_name} is set to {github_remote_url}')
+        else:
+            print('git repo already exists, exiting...')
 
     def __call__(self):
         self.make_environment()
