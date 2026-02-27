@@ -11,7 +11,7 @@ class PackSetup:
         self.package_name = package_name
         self.author = author
         self.email = email
-        self.github_https = gtihub_https
+        self.github_https = github_https
         self.github_ssh = github_ssh
         print(f'package name: {package_name}')
     
