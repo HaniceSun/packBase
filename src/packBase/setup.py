@@ -71,7 +71,7 @@ class PackSetup:
 
     def make_license(self, out_file='LICENSE'):
         with open(f'{out_file}', 'w') as f:
-            f.write(license_template.format(author=self.author).strip())
+            f.write(license_template.format(year=datetime.now().year, author=self.author).strip())
         print(f'{out_file} is created')
 
     def make_gitignore(self, out_file='.gitignore'):
