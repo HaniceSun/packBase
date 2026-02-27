@@ -55,22 +55,21 @@ class PackSetup:
         print(f'{out_dir}/{self.package_name}/{out_file} is created')
 
     def make_logo(self, out_file='logo.png', logo_dir='assets'):
-        if not os.path.exists(logo_dir):
-            logo_dir_template = f'{BASE.parent.parent}/{logo_dir}'
-            shutil.copytree(logo_dir_template, logo_dir)
         print(f'{out_file} need to be updated')
 
     def make_readme(self, out_file='README.md'):
-        readme_file = f'{BASE.parent.parent}/{out_file}'
-        shutil.copy(readme_file, out_file)
+        with open(f'{out_file}', 'w') as f:
+            f.write(readme_template.format(package_name=self.package_name,
+                                           author=self.author, email=self.email).strip())
         print(f'{out_file} need to be updated')
 
     def make_license(self, out_file='LICENSE'):
-        license_file = f'{BASE.parent.parent}/{out_file}'
-        shutil.copy(license_file, out_file)
+        with open(f'{out_file}', 'w') as f:
+            f.write(license_template.format(author=self.author).strip())
+        print(f'{out_file} is created')
 
     def make_gitignore(self, out_file='.gitignore'):
-        gitignore_file = f'{BASE.parent.parent}/{out_file}'
+        gitignore_file = f'{BASE}/data/{out_file}'
         shutil.copy(gitignore_file, out_file)
 
     def make_git(self, git_dir='.git', commit_message='initial commit', github_remote_name='origin'):

@@ -80,3 +80,59 @@ def main():
     if args.command == 'train':
         pass
 '''
+
+readme_template='''
+<p align="left">
+<img src="assets/logo.png" alt="logo" width="200"/>
+</p>
+
+## Overview
+
+packBase is a template repository for creating new Python packages.
+
+## Installation
+
+```
+git clone git@github.com:HaniceSun/{package_name}.git
+conda env create -f environment.yaml
+conda activate {package_name}
+```
+
+## Usage
+
+```
+{package_name} --help
+```
+
+## Author and License
+
+**Author:** {author}
+
+**Email:** {email}
+
+**License:** [MIT License](LICENSE)
+'''
+
+license_template='''
+MIT License
+
+Copyright (c) 2025 {author}
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+'''
