@@ -27,5 +27,9 @@ def main():
         ps = PackSetup(package_name=package_name, author=args.author, email=args.email, github_account=args.account)
         ps()
     elif args.command == 'fresh':
+        choice = input("The repo has been backed up? (yes/NO) ")
+        if choice.lower() != 'yes':
+            print("Please backup the repo before running this command.")
+            return
         cmd = 'git checkout --orphan new-main && git add -A && git commit -m "fresh start" && git branch -D main && git branch -m main && git push -f origin main'
         subprocess.run(cmd, shell=True)
