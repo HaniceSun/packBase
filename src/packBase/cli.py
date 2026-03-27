@@ -14,7 +14,7 @@ def get_parser():
     p1.add_argument('--email', type=str, default='hanicesun@gmail.com', help='email address')
     p1.add_argument('--account', type=str, default='HaniceSun', help='github account')
 
-    p2 = subparsers.add_parser("fresh", help="delete all history and keep only current files for a github repo, internal use only")
+    p2 = subparsers.add_parser("fresh", help="delete all history and keep only current files for a github repo; internal use only; use with caution!")
     return parser
 
 def main():
